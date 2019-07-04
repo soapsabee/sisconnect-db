@@ -10,20 +10,25 @@ mongoose.connect('mongodb+srv://soapsabee:s5930213055Pati@sisconnect-db-btudi.mo
 
 var db = mongoose.connection;
 
-db.on('connected', function(){
+// db.on('connected', function(){
 
-    console.log('Mongoose connected');
+//     console.log('Mongoose connected');
     
-    });
+//     });
     
-    // เมื่อการเชื่อมต่อไม่สำเร็จ
+//     // เมื่อการเชื่อมต่อไม่สำเร็จ
     
-    db.on('error', function(err){
+//     db.on('error', function(err){
     
-    console.log('Mongoose error: ' + err);
+//     console.log('Mongoose error: ' + err);
     
-    });
+//     });
 
+mongoose.connect('mongodb+srv://soapsabee:s5930213055Pati@sisconnect-db-btudi.mongodb.net/', { dbName:'sisconned-db' })
+  .then( () => {
+    console.log('Connection to the Atlas Cluster is successful!')
+  })
+  .catch( (err) => console.error(err));
 
 //  (async() => {
 //     const url = process.env.MONGO_URI ;
