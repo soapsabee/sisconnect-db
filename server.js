@@ -6,9 +6,9 @@ const app = express();
 app.use(bodyParser.json());
 
 const url = process.env.MONGO_URI ;
-mongoose.connect('mongodb+srv://soapsabee:s5930213055Pati@sisconnect-db-btudi.mongodb.net/',{dbName: 'sisconned-db'});
+//mongoose.connect('mongodb+srv://soapsabee:s5930213055Pati@sisconnect-db-btudi.mongodb.net/',{dbName: 'sisconned-db'});
 
-var db = mongoose.connection;
+//var db = mongoose.connection;
 
 // db.on('connected', function(){
 
