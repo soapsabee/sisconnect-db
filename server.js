@@ -15,11 +15,11 @@ let collection = null;
 //     collection = db.collection('student');
 // })
 
-app.get('/',(req,res)=>{
+app.get('/', (req,res)=> {
     res.send('Welcome1');
 })
 
-
-app.listen(8000, () =>{
-    console.log('Listening ...');
-})
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('App is running on http://localhost:' + port);
+});
