@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const url = process.env.MONGO_URI ;
-mongoose.connect(url);
+mongoose.connect(url,{dbName: 'sisconned-db'});
 
 var db = mongoose.connection;
 
