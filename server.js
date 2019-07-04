@@ -46,6 +46,7 @@ app.post('/insert', (req,res) => {
   var data = new StudentData(item);
   data.save();
 
+  res.send("success 200")
 })
 
 var port = process.env.PORT || 3000;
