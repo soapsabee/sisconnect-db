@@ -30,6 +30,7 @@ const url = process.env.MONGO_URI ;
 
 const conn = mongoose.createConnection('mongodb+srv://soapsabee:s5930213055Pati@sisconnect-db-btudi.mongodb.net/sisconned-db')
 
+  var filenameForStorage
   let gfs;
 
   conn.once('open', () => {
@@ -42,7 +43,8 @@ const conn = mongoose.createConnection('mongodb+srv://soapsabee:s5930213055Pati@
     url: 'mongodb+srv://soapsabee:s5930213055Pati@sisconnect-db-btudi.mongodb.net/sisconned-db',
     file: (req, file) => {
       return new Promise((resolve, reject) => {
-          const filename = file.originalname;
+         this.filenameForStorage = randomNameImg()
+          const filename = this.filenameForStorage
           const fileInfo = {
             filename: filename,
             bucketName: 'uploads'
@@ -53,6 +55,13 @@ const conn = mongoose.createConnection('mongodb+srv://soapsabee:s5930213055Pati@
   });
   
    const upload = multer({ storage });
+
+
+const randomNameImg = () => {
+    
+    let r = Math.random().toString(36).substring(7);
+    return r
+}
 
 
 var Schema = mongoose.Schema;
@@ -83,7 +92,7 @@ app.get('/', (req,res)=> {
 app.post('/upload', upload.any(), (req, res) => {
   console.log(req.body)
   console.log(req.files)
-  res.redirect('/');
+  res.send({url_img:this.filenameForStorage})
 });
 
 
