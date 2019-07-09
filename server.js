@@ -74,6 +74,9 @@ var studentDataSchema = new Schema({
 
 }, {collection: 'student'})
 
+const TestSchema = new Schema({
+    expire_at: {type: Date, default: Date.now, expires: 7200} 
+}, {collection: 'uploads'})
 
 
 var StudentData = mongoose.model('StudentData', studentDataSchema);
